@@ -5,6 +5,8 @@ const router = express.Router();
 // Endopoint to get more detailed info
 router.get('/:countryCode', async (req, res) => {
   const countryCode = req.params.countryCode;
+  console.log(countryCode);
+
 
   try {
     // Country info
