@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
+import { Rings } from "react-loader-spinner";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -14,6 +15,8 @@ import {
 } from "chart.js";
 
 import { fetchCountryInfo } from "@/services/countriesServices";
+
+import styles from "../../countryPage.module.css";
 
 ChartJS.register(
   CategoryScale,
@@ -42,37 +45,70 @@ const CountryPage = ({ params }) => {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div className={styles.loaderContainer}>
+        <Rings
+          height="220"
+          width="220"
+          color="#000"
+          radius="20"
+          wrapperStyle={{}}
+          wrapperClass=""
+          visible={true}
+          ariaLabel="rings-loading"
+        />
+      </div>
+    );
   }
 
+  console.log(countryData);
+
   return (
-    <div>
-      <h1>{countryData.country.commonName}</h1>
-      <h1>{countryData.country.countryCode}</h1>
-      <img
-        src={countryData.flagUrl}
-        alt={`${countryData.country.commonName} flag`}
-      />
-      <ul>
-        {countryData.borders.map((border, index) => (
-          <li key={index}>{border.commonName}</li>
-        ))}
-      </ul>
-      <h2>Population</h2>
-      <Line
-        data={{
-          labels: countryData.population.map((pop) => pop.year),
-          datasets: [
-            {
-              label: "Población",
-              data: countryData.population.map((pop) => pop.value),
-              fill: false,
-              borderColor: "rgba(75, 192, 192, 1)",
-              tension: 0.1,
-            },
-          ],
-        }}
-      />
+    <div className={styles.container}>
+      <div className={styles.header}>
+        <h1 className={styles.countryName}>{countryData.country.commonName}</h1>
+        <p className={styles.countryCode}>
+          Code: {countryData.country.countryCode}
+        </p>
+      </div>
+      <div className={styles.flagContainer}>
+        <img
+          src={countryData.flagUrl}
+          alt={`${countryData.country.name} flag`}
+          className={styles.flagImage}
+        />
+      </div>
+      <p>Neighbouring countries:</p>
+      {countryData.borders.length === 0 ? (
+        <p style={{"margin-top": "20px"}}>No neighbouring countries</p>
+      ) : (
+        <ul className={`${styles.bordersList} ${styles.grid}`}>
+          {countryData.borders.map((border, index) => (
+            <li key={index} className={styles.bordersListItem}>
+              {border.commonName}
+            </li>
+          ))}
+        </ul>
+      )}
+      <div className={styles.populationSection}>
+        <h2 className={styles.populationTitle}>Population</h2>
+        <div className={styles.chartContainer}>
+          <Line
+            data={{
+              labels: countryData.population.map((pop) => pop.year),
+              datasets: [
+                {
+                  label: "Población",
+                  data: countryData.population.map((pop) => pop.value),
+                  fill: false,
+                  borderColor: "#00aaff",
+                  tension: 0.1,
+                },
+              ],
+            }}
+          />
+        </div>
+      </div>
     </div>
   );
 };

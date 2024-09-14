@@ -174,7 +174,6 @@ a.secondary {
   min-height: 100vh;
 }
 
-
 /* Title styling */
 .title {
   font-size: 2rem;
@@ -224,12 +223,12 @@ a.secondary {
 
 /* Country name and code styling */
 .countryName {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 500;
 }
 
 .countryCode {
-  font-size: 1rem;
+  font-size: .9rem;
   color: #888;
 }
 
@@ -239,6 +238,16 @@ a.secondary {
   gap: 16px;
   padding: 16px;
 }
+
+.loaderContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 90vh;
+}
+
+/* Media queries */
 
 @media (max-width: 1200px) {
   .grid {

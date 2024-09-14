@@ -1,0 +1,89 @@
+/* CountryPage.module.css */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+  margin-bottom: 2rem;
+  font-family: "Arial", sans-serif;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.countryName {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.countryCode {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.flagContainer {
+  margin: 20px 0;
+}
+
+.flagImage {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.populationSection {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.populationTitle {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.chartContainer {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  margin: auto;
+}
+
+.bordersList {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  font-size: 1rem;
+  color: #666;
+}
+
+.bordersListItem {
+  margin: 5px;
+}
+
+.loaderContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 90vh;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  padding: 16px;
+}
+
+

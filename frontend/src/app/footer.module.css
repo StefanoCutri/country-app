@@ -1,0 +1,25 @@
+.footer {
+    background-color: #f8f9fa; /* Color de fondo suave */
+    color: #343a40; /* Color del texto */
+    padding: 20px; /* Espaciado interno */
+    text-align: center; /* Centrar el texto */
+    border-top: 1px solid #dee2e6; /* Línea sutil en la parte superior */
+    position: relative; /* Posicionamiento relativo para colocar el contenido */
+    bottom: 0; /* Asegura que el footer esté al final */
+    width: 100%; /* Asegura que el footer ocupe todo el ancho de la pantalla */
+  }
+  
+  .footer p {
+    margin: 0; /* Elimina el margen predeterminado */
+    font-size: 14px; /* Tamaño de fuente adecuado */
+  }
+  
+  .footer a {
+    color: #007bff; /* Color del enlace */
+    text-decoration: none; /* Elimina el subrayado */
+  }
+  
+  .footer a:hover {
+    text-decoration: underline; /* Subraya el enlace al pasar el cursor */
+  }
+  

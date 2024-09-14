@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { Rings } from "react-loader-spinner";
 
 import CountryList from "@/components/CountryList";
 import { fetchCountries } from "@/services/countriesServices";
@@ -13,8 +14,6 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    console.log("PAGES INDEX");
-
     async function loadCountries() {
       const countryData = await fetchCountries();
       setCountries(countryData);
@@ -25,7 +24,20 @@ export default function Home() {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div className={styles.loaderContainer}>
+        <Rings
+          height="220"
+          width="220"
+          color="#000"
+          radius="20"
+          wrapperStyle={{}}
+          wrapperClass=""
+          visible={true}
+          ariaLabel="rings-loading"
+        />
+      </div>
+    );
   }
 
   return (
