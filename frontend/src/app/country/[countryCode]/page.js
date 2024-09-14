@@ -63,8 +63,6 @@ const CountryPage = ({ params }) => {
     );
   }
 
-  console.log(countryData);
-
   return (
     <div className={styles.container}>
       <div className={styles.header}>
