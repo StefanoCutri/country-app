@@ -1,4 +1,8 @@
 import localFont from 'next/font/local';
+
+import Header from '@/components/ui/Header';
+import Footer from '@/components/ui/Footer';
+
 import './globals.css';
 
 // Import local fonts
@@ -24,16 +28,13 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <header>
-          <nav>
-            <h1>Country Info App</h1>
-          </nav>
-        </header>
+      <body>
+        <Header />
+
         <main>{children}</main>
-        <footer>
-          <p>&copy; 2024 Country Info App</p>
-        </footer>
+        <Footer />
+
+
       </body>
     </html>
   );
