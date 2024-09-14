@@ -2,10 +2,10 @@
 
 import { useState, useEffect } from "react";
 
+import CountryList from "@/components/CountryList";
 import { fetchCountries } from "@/services/countriesServices";
 
 import styles from './page.module.css';
-import CountryList from "@/components/CountryList";
 
 export default function Home() {
 
@@ -29,12 +29,9 @@ export default function Home() {
   }
 
   return (
-    <div className={styles.page}>
-      <h1 className={styles.title}>Welcome to the Country Info App</h1>
-      <p className={styles.description}>Explore detailed information about countries around the world.</p>
+    <div className={styles.container}>
+      <h1 className={styles.title}>Country List</h1>
       <main className={styles.main}>
-
-        {/* {Country list} */}
         <CountryList countries={countries} />
       </main>
     </div>
