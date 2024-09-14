@@ -6,13 +6,13 @@ import { Rings } from "react-loader-spinner";
 import CountryList from "@/components/CountryList";
 import { fetchCountries } from "@/services/countriesServices";
 
-import styles from './page.module.css';
+import styles from "./page.module.css";
 
 export default function Home() {
-
   const [countries, setCountries] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  // Fetch countries
   useEffect(() => {
     async function loadCountries() {
       const countryData = await fetchCountries();

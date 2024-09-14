@@ -18,6 +18,7 @@ import { fetchCountryInfo } from "@/services/countriesServices";
 
 import styles from "../../countryPage.module.css";
 
+// Chart configuration
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -34,6 +35,7 @@ const CountryPage = ({ params }) => {
   const [countryData, setCountryData] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  // Fetch country data by code
   useEffect(() => {
     async function loadCountryInfo() {
       const countryData = await fetchCountryInfo(countryCode);
@@ -80,7 +82,7 @@ const CountryPage = ({ params }) => {
       </div>
       <p>Neighbouring countries:</p>
       {countryData.borders.length === 0 ? (
-        <p style={{"margin-top": "20px"}}>No neighbouring countries</p>
+        <p style={{ "margin-top": "20px" }}>No neighbouring countries</p>
       ) : (
         <ul className={`${styles.bordersList} ${styles.grid}`}>
           {countryData.borders.map((border, index) => (
