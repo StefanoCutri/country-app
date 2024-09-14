@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
-const axios = require('axios');
+const countriesRoutes = require('./routes/countries');
+const countryInfoRoutes = require('./routes/countryInfo');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
